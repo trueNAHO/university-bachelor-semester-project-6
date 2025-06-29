@@ -3,6 +3,7 @@ members = ["crates/*"]
 resolver = "3"
 
 [workspace.dependencies]
+ahash = { version = "0.8.12", default-features = false }
 clap = { version = "4.5.40", default-features = false }
 criterion = { version = "0.5.1", default-features = false }
 iterations = { path = "crates/iterations", default-features = false }

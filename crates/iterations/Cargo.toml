@@ -10,6 +10,7 @@ name = "iterations"
 version.workspace = true
 
 [dependencies]
+ahash = { workspace = true, features = ["runtime-rng", "std"] }
 clap = { workspace = true, features = ["default", "derive"] }
 itertools = { workspace = true, features = ["use_alloc"] }
 tap.workspace = true
