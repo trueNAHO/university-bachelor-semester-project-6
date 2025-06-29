@@ -1,0 +1,13 @@
+[bans]
+multiple-versions = "deny"
+multiple-versions-include-dev = true
+
+skip = [
+  { crate = "itertools@0.10.5", reason = "criterion depends on itertools@0.10.5" },
+]
+
+wildcards = "deny"
+workspace-default-features = "deny"
+
+[licenses]
+allow = ["Apache-2.0", "BSL-1.0", "MIT", "Unicode-3.0"]

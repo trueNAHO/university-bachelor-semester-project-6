@@ -1,0 +1,13 @@
+[package]
+description = "Plot JSON datasets"
+edition.workspace = true
+license.workspace = true
+name = "plot"
+version.workspace = true
+
+[dependencies]
+clap = { workspace = true, features = ["default", "derive"] }
+plotters = { workspace = true, features = ["line_series", "svg_backend"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true, features = ["std"] }
+tap.workspace = true

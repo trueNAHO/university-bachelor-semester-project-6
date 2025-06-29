@@ -1,0 +1,373 @@
+= University: Bachelor Semester Project 6 (2025/02/17--2025/07/04)
+:1brc: link:https://github.com/gunnarmorling/1brc[One Billion Row Challenge (1BRC)]
+:link-iterations: link:crates/iterations/src/iterations
+
+PoC Rust implementation of the performance-oriented {1brc}, featuring a
+sophisticated build system.
+
+The baseline implementation is incrementally optimized, with each version
+described, compared, and profiled.
+
+Optimizations are guided by methodically addressing the slowest sections
+link:https://valgrind.org/docs/manual/cl-manual.html[Callgrind] reports.
+
+== Usage
+
+[cols="2,7a,7a"]
+|===
+| Package | Description | Examples
+
+| [[benchmark]]`benchmark`
+|
+Benchmarking tool for {link-iterations}[iterations] against <<inputs, inputs>>.
+
+[WARNING]
+This package depends on the <<inputs, `inputs`>> package.
+|
+====
+To benchmark all <<iterations, iterations>> against all <<inputs, inputs>>, run:
+
+[,console]
+----
+nix run .#benchmark
+----
+
+To benchmark <<iterations, iterations>> matching the `0(1\|2)` regex against
+<<inputs, inputs>> matching the `1\|8\|16\|32\|64\|.*00000000` regex, run:
+
+[,console]
+----
+nix run .#benchmark -- \
+  '0(1\|2)' \
+  '1\|8\|16\|32\|64\|.*00000000'
+----
+====
+
+| [[benchmark-metadata]]`benchmark-metadata`
+| Benchmark metadata.
+
+|
+====
+[,console]
+----
+nix build .#benchmark-metadata
+----
+====
+
+| [[default]]`default`
+|
+Bundle of the <<benchmark, `benchmark`>>, <<benchmark-metadata,
+`benchmark-metadata`>>, <<descriptions, `descriptions`>>, <<diffs, `diffs`>>,
+<<docs, `docs`>>, <<inputs, `inputs`>>, <<plots, `plots`>>, and <<workspace,
+`workspace`>> packages.
+
+[WARNING]
+This package depends on the <<inputs, `inputs`>> package.
+|
+====
+[,console]
+----
+nix build .#default
+----
+====
+
+| [[descriptions]]`descriptions`
+| Module documentations of the {link-iterations}[iterations] implementations.
+
+|
+====
+[,console]
+----
+nix build .#descriptions
+----
+====
+
+| [[diffs]]`diffs`
+|
+`diff` between consecutive {link-iterations}[iterations] implementations.
+
+This is the intended reading experience of the implementation.
+
+|
+====
+[,console]
+----
+nix build .#diffs
+----
+====
+
+| [[docs]]`docs`
+| Build the <<workspace, workspace>> documentation.
+|
+====
+[,console]
+----
+nix build .#docs
+----
+
+[,console]
+----
+cargo doc
+----
+====
+
+| [[input-1000000000]]`input-1000000000`
+|
+Dataset with one billion rows.
+
+[CAUTION]
+Building this package takes over five minutes on reasonably modern hardware.
+
+|
+====
+[,console]
+----
+nix build .#input-1000000000
+----
+====
+
+| [[input-not-1000000000]]`input-(?!100000$)\d+`
+|
+Dataset with the specified number of rows.
+
+.Available dataset sizes
+[%collapsible]
+====
+* `input-1`
+* `input-2`
+* `input-4`
+* `input-8`
+* `input-16`
+* `input-32`
+* `input-64`
+* `input-128`
+* `input-256`
+* `input-512`
+* `input-1024`
+* `input-2048`
+* `input-4096`
+* `input-8192`
+* `input-16384`
+* `input-32768`
+* `input-65536`
+* `input-131072`
+* `input-262144`
+* `input-524288`
+* `input-1048576`
+* `input-2097152`
+* `input-4194304`
+* `input-8388608`
+* `input-10000000`
+* `input-16777216`
+* `input-20000000`
+* `input-30000000`
+* `input-33554432`
+* `input-40000000`
+* `input-50000000`
+* `input-60000000`
+* `input-67108864`
+* `input-70000000`
+* `input-80000000`
+* `input-90000000`
+* `input-100000000`
+* `input-110000000`
+* `input-120000000`
+* `input-130000000`
+* `input-134217728`
+* `input-140000000`
+* `input-150000000`
+* `input-160000000`
+* `input-170000000`
+* `input-180000000`
+* `input-190000000`
+* `input-200000000`
+* `input-210000000`
+* `input-220000000`
+* `input-230000000`
+* `input-240000000`
+* `input-250000000`
+* `input-260000000`
+* `input-268435456`
+* `input-270000000`
+* `input-280000000`
+* `input-290000000`
+* `input-300000000`
+* `input-310000000`
+* `input-320000000`
+* `input-330000000`
+* `input-340000000`
+* `input-350000000`
+* `input-360000000`
+* `input-370000000`
+* `input-380000000`
+* `input-390000000`
+* `input-400000000`
+* `input-410000000`
+* `input-420000000`
+* `input-430000000`
+* `input-440000000`
+* `input-450000000`
+* `input-460000000`
+* `input-470000000`
+* `input-480000000`
+* `input-490000000`
+* `input-500000000`
+* `input-510000000`
+* `input-520000000`
+* `input-530000000`
+* `input-536870912`
+* `input-540000000`
+* `input-550000000`
+* `input-560000000`
+* `input-570000000`
+* `input-580000000`
+* `input-590000000`
+* `input-600000000`
+* `input-610000000`
+* `input-620000000`
+* `input-630000000`
+* `input-640000000`
+* `input-650000000`
+* `input-660000000`
+* `input-670000000`
+* `input-680000000`
+* `input-690000000`
+* `input-700000000`
+* `input-710000000`
+* `input-720000000`
+* `input-730000000`
+* `input-740000000`
+* `input-750000000`
+* `input-760000000`
+* `input-770000000`
+* `input-780000000`
+* `input-790000000`
+* `input-800000000`
+* `input-810000000`
+* `input-820000000`
+* `input-830000000`
+* `input-840000000`
+* `input-850000000`
+* `input-860000000`
+* `input-870000000`
+* `input-880000000`
+* `input-890000000`
+* `input-900000000`
+* `input-910000000`
+* `input-920000000`
+* `input-930000000`
+* `input-940000000`
+* `input-950000000`
+* `input-960000000`
+* `input-970000000`
+* `input-980000000`
+* `input-990000000`
+* `input-1000000000`
+====
+
+[CAUTION]
+This package depends on the <<input-1000000000, `input-1000000000`>> package.
+
+[CAUTION]
+Building this package takes over half an hour on reasonably modern hardware.
+
+|
+====
+[,console]
+----
+nix build .#input-524288
+----
+====
+
+| [[inputs]]`inputs`
+|
+Bundle of the <<input-1000000000, `input-1000000000`>> and
+<<input-not-1000000000, `input-(?!100000$)\d+`>> packages.
+
+[CAUTION]
+This package depends on the <<input-1000000000, `input-1000000000`>> package.
+
+[WARNING]
+This package is over 600 GB in size. For reference, it compresses to 200 GB on a
+Btrfs filesystem with default zstd compression.
+
+|
+====
+[,console]
+----
+nix build .#inputs
+----
+====
+
+| [[iterations]]`iterations`
+| Run an {link-iterations}[iteration] with a given input file.
+
+|
+====
+[,console]
+----
+nix run .#iterations -- --help
+----
+
+[,console]
+----
+cargo run \
+  --package iterations \
+  --release \
+  -- \
+  --help
+----
+====
+
+| [[plot]]`plot`
+| Plot JSON datasets.
+|
+====
+[,console]
+----
+nix run .#plot -- --help
+----
+
+[,console]
+----
+cargo run \
+  --package plot \
+  --release \
+  -- \
+  --help
+----
+====
+
+| [[plots]]`plots`
+|
+Consecutive link:benchmarks[benchmark] <<plot, plot>>s, with an overall plot
+combining all benchmarks.
+
+[WARNING]
+This package depends on the <<inputs, `inputs`>> package.
+
+|
+====
+[,console]
+----
+nix build .#plots
+----
+====
+
+| [[workspace]]`workspace`
+| Rust implementation of the performance-oriented {1brc}.
+|
+====
+[,console]
+----
+nix build .#workspace
+----
+
+[,console]
+----
+cargo build \
+  --release \
+  --workspace
+----
+====
+|===

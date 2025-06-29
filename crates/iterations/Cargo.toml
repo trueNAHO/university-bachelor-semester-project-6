@@ -1,0 +1,22 @@
+[[bench]]
+harness = false
+name = "bench"
+
+[package]
+description = "Run an iteration with a given input file"
+edition.workspace = true
+license.workspace = true
+name = "iterations"
+version.workspace = true
+
+[dependencies]
+clap = { workspace = true, features = ["default", "derive"] }
+itertools = { workspace = true, features = ["use_alloc"] }
+tap.workspace = true
+
+[dev-dependencies]
+criterion.workspace = true
+
+[build-dependencies]
+itertools = { workspace = true, features = ["use_alloc"] }
+tap.workspace = true

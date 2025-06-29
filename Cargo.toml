@@ -1,0 +1,26 @@
+[workspace]
+members = ["crates/*"]
+resolver = "3"
+
+[workspace.dependencies]
+clap = { version = "4.5.40", default-features = false }
+criterion = { version = "0.5.1", default-features = false }
+iterations = { path = "crates/iterations", default-features = false }
+itertools = { version = "0.14.0", default-features = false }
+plotters = { version = "0.3.7", default-features = false }
+serde = { version = "1.0.219", default-features = false }
+serde_json = { version = "1.0", default-features = false }
+tap = { version = "1.0.1", default-features = false }
+
+[workspace.metadata.crane]
+name = "university-bachelor-semester-project-6"
+
+[workspace.package]
+authors = ["NAHO <90870942+trueNAHO@users.noreply.github.com>"]
+description = "University: Bachelor Semester Project 6 (2025/02/17--2025/07/04)"
+edition = "2024"
+homepage = "https://github.com/trueNAHO/university-bachelor-semester-project-6"
+license = "MIT"
+publish = false
+repository = "university-bachelor-semester-project-6"
+version = "0.1.0"
