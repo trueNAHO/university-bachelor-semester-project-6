@@ -1,0 +1,140 @@
+{
+  "benchmarks": [
+    {
+      "input": 1,
+      "time": 5489.788710034802
+    },
+    {
+      "input": 2,
+      "time": 6003.199981099173
+    },
+    {
+      "input": 4,
+      "time": 7617.36841798545
+    },
+    {
+      "input": 8,
+      "time": 10089.409465889872
+    },
+    {
+      "input": 16,
+      "time": 14623.406198236133
+    },
+    {
+      "input": 32,
+      "time": 24906.9628149055
+    },
+    {
+      "input": 64,
+      "time": 44115.4880831005
+    },
+    {
+      "input": 128,
+      "time": 73689.99985672382
+    },
+    {
+      "input": 256,
+      "time": 134929.92432943112
+    },
+    {
+      "input": 512,
+      "time": 230547.98437892567
+    },
+    {
+      "input": 1024,
+      "time": 319752.37303673424
+    },
+    {
+      "input": 2048,
+      "time": 446471.91262603295
+    },
+    {
+      "input": 4096,
+      "time": 625253.0705106112
+    },
+    {
+      "input": 8192,
+      "time": 994853.4697908986
+    },
+    {
+      "input": 16384,
+      "time": 1718502.3150236884
+    },
+    {
+      "input": 32768,
+      "time": 3155731.094375
+    },
+    {
+      "input": 65536,
+      "time": 6101917.1711111115
+    },
+    {
+      "input": 131072,
+      "time": 11885639.276000004
+    },
+    {
+      "input": 262144,
+      "time": 23725102.63
+    },
+    {
+      "input": 524288,
+      "time": 46436023.24
+    },
+    {
+      "input": 1048576,
+      "time": 93928746.03
+    },
+    {
+      "input": 2097152,
+      "time": 185642586.22
+    },
+    {
+      "input": 4194304,
+      "time": 376962729.27
+    },
+    {
+      "input": 8388608,
+      "time": 749767241.31
+    }
+  ],
+  "metadata": {
+    "commit": "aab8760820eaec405b61117a8fee9f23c8c2f209",
+    "hardware": {
+      "architecture": "x86_64",
+      "cpu": {
+        "cores": 8,
+        "name": "AMD Ryzen 7 5700U with Radeon Graphics",
+        "threads": 16
+      },
+      "gpu": {
+        "name": "Advanced Micro Devices [AMD/ATI] Lucienne"
+      },
+      "ram": {
+        "frequency": "3200 MT/s",
+        "name": "M471A2K43EB1-CWE",
+        "size": "32 GiB",
+        "type": "DDR4"
+      },
+      "storage": {
+        "name": "SSD 970 EVO Plus 2TB",
+        "size": "1.82 TiB"
+      }
+    },
+    "software": {
+      "filesystem": "btrfs",
+      "kernel": {
+        "name": "Linux",
+        "version": "6.6.69"
+      },
+      "os": {
+        "name": "NixOS",
+        "version": "25.05"
+      },
+      "rust": {
+        "cargo": "cargo 1.89.0-nightly (fc1518ef0 2025-06-06)",
+        "rustc": "rustc 1.89.0-nightly (e703dff8f 2025-06-11)"
+      }
+    }
+  },
+  "name": "v02_byte_file_parsing"
+}
